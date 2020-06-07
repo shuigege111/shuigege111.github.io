@@ -48,8 +48,8 @@
     
     
     <title>
-          
-            水哥哥
+        
+            tags | 水哥哥
         
     </title>
     
@@ -214,31 +214,62 @@
 </aside>
   
   <main id="main-contain" class="mdui-container mdui-m-t-5">
+    <div class="mdui-card mdui-p-b-2 mdui-m-b-5">
+    <div class="post-header"> 
+        <a class="post-header-title" href="/tags/index.html">标签</a>
+    </div>
+    <div id="page-card" class="mdui-card-content mdui-p-x-4">
+        
+            
+        </div>
+    </div>
     
-
-<div class="mdui-card mdui-p-a-4 mdui-m-b-5">
-    <div class="page-describe">
-        目前共计 1 篇日志。
-    </div>
-    <div class="posts-collapse">
+    <div id="comment" class="mdui-card mdui-p-a-2 mdui-m-b-5">
+      <div class="mdui-tab" mdui-tab>
         
-            
-            
-                <div class="collection-title">
-                    <a href="/archives/2020"><h2>2020<small>归档</small></h2></a>
-                </div>
-                
-            
-
-            <div class="collection-item">
-                <h3><a href="/2020/06/05/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">我的第一篇博客文章</a></h3>
-                <time itemprop="dateCreated" datetime=2020-06-05 >
-                    2020.06.05
-                </time>
-            </div>
+          <a href="#comment-tab0" class="mdui-ripple">gitalk</a>
         
-    </div>
+          <a href="#comment-tab1" class="mdui-ripple">livere</a>
+        
+      </div>
+      
+        <div id="comment-tab0" class="mdui-p-a-2">
+          <div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+<script>
+  var gitalk = new Gitalk({
+    clientID: '',
+    clientSecret: '',
+    repo: '',
+    owner: '',
+    admin: [''],
+    id:  md5(location.pathname) ,
+    distractionFreeMode: 'true',
+  });
+  gitalk.render('gitalk-container');
+</script>
+        </div>
+      
+        <div id="comment-tab1" class="mdui-p-a-2">
+          <div id="lv-container" data-id="city" data-uid="">
+  <script type="text/javascript">
+    (function (d, s) {
+      var j, e = d.getElementsByTagName(s)[0];
+      if (typeof LivereTower === 'function') { return; }
+      j = d.createElement(s);
+      j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+      j.async = true;
+      e.parentNode.insertBefore(j, e);
+    })(document, 'script');
+  </script>
+  <noscript>Please enable JavaScript to view the comments powered by LiveRe.</noscript>
 </div>
+        </div>
+      
+    </div>
+
 
 
   </main>
