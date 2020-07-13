@@ -235,7 +235,7 @@
     </span>
     <span>
       <span class="iconfont icon-calendar-check"></span>
-      更新于:&nbsp;2020-07-08
+      更新于:&nbsp;2020-07-13
     </span>
     <span>
       <span class="iconfont icon-folder"></span>
@@ -291,9 +291,9 @@
   
   
   <div class="mdui-card-content mdui-typo mdui-p-x-4">
-    <p>##<strong><em>Scanner类的用法：</em></strong><br>###<strong>介绍:</strong> Scanner是一个可以使用正则表达式来解析基本类型和字符串的简单文本扫描器，继承了Object类，实现了Iterator<String>接口;<br>使用的时候需要导入<strong>java.util.Scanner</strong>包.</p>
-<p>###<strong>功能：</strong> 它可以从文件，字符串，和输入流中解析出基本类型和字符串值，有不同的构造器来获取不同的数据。从而进行解析,并返回;  </p>
-<p>###<strong>常用方法</strong><br>####<strong>1.next&amp;nextLine</strong><br>      next和nextLine方法都可以用来读取字符串，但略有不同，对于next来说，其会自动跳过输入数据开头的空格，换行等无效字符,遇到有效字符将其输出，知道再次遇到空格，换行的字符停止读取字符；而nextLine不会跳过开头的无效字符，会将其都输出，知道遇到换行停止读取字符,读取其他类型的数据有其对应的方法，用法类似,如(nextInt,nextByte)等;</p>
+    <h1 id="Scanner类的用法："><a href="#Scanner类的用法：" class="headerlink" title="Scanner类的用法：  "></a><strong><em>Scanner类的用法：</em></strong>  </h1><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍:"></a><strong>介绍:</strong></h2><p> Scanner是一个可以使用正则表达式来解析基本类型和字符串的简单文本扫描器，继承了Object类，实现了Iterator<String>接口;使用的时候需要导入<strong>java.util.Scanner</strong>包.</p>
+<h2 id="功能："><a href="#功能：" class="headerlink" title="功能："></a><strong>功能：</strong></h2><p>它可以从文件，字符串，和输入流中解析出基本类型和字符串值，有不同的构造器来获取不同的数据。从而进行解析,并返回;  </p>
+<h2 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法  "></a><strong>常用方法</strong>  </h2><p><strong>1.next&amp;nextLine:</strong><br>      next和nextLine方法都可以用来读取字符串，但略有不同，对于next来说，其会自动跳过输入数据开头的空格，换行等无效字符,遇到有效字符将其输出，知道再次遇到空格，换行的字符停止读取字符；而nextLine不会跳过开头的无效字符，会将其都输出，知道遇到换行停止读取字符,读取其他类型的数据有其对应的方法，用法类似,如(nextInt,nextByte)等;</p>
 <pre><code>   public static void main(String[] args) 
 {
   Scanner sc=new Scanner(System.in);
@@ -306,8 +306,108 @@
   System.out.println(b);
   sc.close();
 
-}</code></pre><p>####<strong>hasNextXxx</strong><br>     该方法用来判断下一个输入是否符合Xxx(可以是 int byte …)类型,如果符合，返回true,否则返回false,与之相对应的有nextXxx方法,两者可配合使用;<br>####<strong>close</strong><br>     该方法用来关闭扫描器，如果不调用该方法,底层的readable也会调用close方法将其关闭</p>
+}</code></pre><p><strong>2.hasNextXxx</strong><br>     该方法用来判断下一个输入是否符合Xxx(可以是 int byte …)类型,如果符合，返回true,否则返回false,与之相对应的有nextXxx方法,两者可配合使用<br><strong>3.close</strong><br>     该方法用来关闭扫描器，如果不调用该方法,底层的readable也会调用close方法将其关闭</p>
+<h1 id="Random类"><a href="#Random类" class="headerlink" title="Random类"></a><strong><em>Random类</em></strong></h1><h2 id="介绍："><a href="#介绍：" class="headerlink" title="介绍："></a><strong>介绍：</strong></h2><p>   使用该类时需要导入<strong>java.util.Random 包</strong>，用来产生随机数，其实是伪随机，因为真正的随机数具有不可预测性，而计算机中的随机数都是通过算法计算得到的，其结果可预测.无参构造方法每次产生的随机数生成器默认根据当前系统时间为种子数，所以每次都创建不同的生成器；</p>
+<h2 id="常用方法-1"><a href="#常用方法-1" class="headerlink" title="常用方法"></a><strong>常用方法</strong></h2><p><strong>1.nextXxx</strong><br>  此类型的方法用来返回Xxx类型的随机数，例如nextInt方法</p>
+<pre><code>public static void main(String[] args)
+{
+    int i=10;
+    Random ran=new Random();
+    while(i--!=0)
+    {
+        //不含参数的方法随机生成该类型范围内的随机数
+        //如int类型的范围：最小值是 -2,147,483,648（-2^31）;
+        //最大值是 2,147,483,647（2^31 - 1）；
+        int b=ran.nextInt();
+        //含参数的方法产生指定范围内的随机数范围在[0,n);
+        int c=ran.nextInt(100);
 
+        System.out.println(b);
+        System.out.println(c);
+
+    }
+
+}</code></pre><p><strong>setSeed(long seed)</strong><br>  此方法用来设置随机数种子，因为种子数相同，所以每次的随机数生成器都是同一个，所以每次生成的随机数序列都相同</p>
+<h1 id="Date类-DateFormat类-SimpleDateFormat类-calendar类"><a href="#Date类-DateFormat类-SimpleDateFormat类-calendar类" class="headerlink" title="Date类 DateFormat类 SimpleDateFormat类  calendar类"></a><strong>Date类 DateFormat类 SimpleDateFormat类  calendar类</strong></h1><h2 id="Date类"><a href="#Date类" class="headerlink" title="Date类"></a><strong>Date类</strong></h2><p>  Date类表示特定的瞬间，精确到毫秒；使用时需要导包<strong>java.util.Date</strong></p>
+<p>  <strong>构造方法有：</strong><br>    Date();//无参,默认以当前系统时间对其实例化，可以获取当前时间<br>    Date(long date);//有参数，返回自1970年00:00:00过了date毫秒后的时间;<br>  <strong>常用方法有：</strong><br>    <strong>after(Date when):</strong> 判断此日期是否在指定日期之后,返回类型为boolean<br>    <strong>before(Date when)</strong> 判断此日期是否在指定日期之前,返回类型为boolean<br>    <strong>compareTo(Date date)</strong> 比较两个日期的顺序,如果参数 Date 等于此 Date，则返回值 0；如果此 Date 在 Date 参数之前，则返回小于 0 的值；如果此 Date 在 Date 参数之后，则返回大于 0 的值.<br>    <strong>equals(Object obj)</strong> 比较两日期是否相等<br>    <strong>getTime()</strong> 返回自1970年00:00:00到此Date经历的毫秒值<br>    <strong>toString()</strong> 将Date转换为另一种形式: dow mon dd hh:mm:ss zzz yyyy 其中： dow 是一周中的某一天 (Sun, Mon, Tue, Wed, Thu, Fri, Sat)。  </p>
+<p><strong>代码实现</strong>  </p>
+<pre><code>public class Randomim {
+public static void main(String[] args){
+//获取当前时间  
+Date date=new Date();
+//获取距离1970年1000000毫秒的日期
+  Date date1=new Date(1000000);
+//比较date是否在date1之后
+  boolean a=date.after(date1);
+//比较date是否在date1之前
+  boolean b=date.before(date1);
+  System.out.println(a);
+  System.out.println(b);
+//获取距离1970年至今的毫秒数
+  long c=date.getTime();
+  System.out.println(c);
+//比较两日期的顺序
+  int d=date.compareTo(date1);
+  System.out.println(d);</code></pre><h2 id="DateFormat类和SimpleDateFormat类"><a href="#DateFormat类和SimpleDateFormat类" class="headerlink" title="DateFormat类和SimpleDateFormat类"></a><strong>DateFormat类</strong>和<strong>SimpleDateFormat类</strong></h2><p><a href="https://blog.csdn.net/a1439775520/article/details/98444189" target="_blank" rel="noopener">DateFormat类和SimpleDateFormat类</a></p>
+<h1 id="Arrays数组工具类"><a href="#Arrays数组工具类" class="headerlink" title="Arrays数组工具类"></a><strong>Arrays数组工具类</strong></h1><h2 id="功能介绍"><a href="#功能介绍" class="headerlink" title="功能介绍"></a><strong>功能介绍</strong></h2><p>  此类包含用来操作数组（比如排序和搜索）的各种方法。此类还包含一个允许将数组作为列表来查看的静态工厂。除非特别注明，否则如果指定数组引用为 null，则此类中的方法都会抛出 NullPointerException。 </p>
+<pre><code>public static void main(String[] args)
+{
+    String[] arrays=null;//类似c语言中定义一个指针，指向了NULL,如：int *p=NULL;
+    System.out.println(arrays[0]);
+}</code></pre><p>  此外，Arrays类中的都是静态方法，直接通过类名调用即可</p>
+<h2 id="常用方法-2"><a href="#常用方法-2" class="headerlink" title="常用方法"></a><strong>常用方法</strong></h2><p><strong>toString(Object[] obj)</strong>  将指定类型的数组转换为字符串形式；  </p>
+<pre><code> public static void main(String[] args)
+{
+    int[] arrays={1,2,3,4,5,6,7,8,9,10};
+    String str=Arrays.toString(arrays);
+    System.out.println(str);
+}</code></pre><p><strong>sort(int[] a),sort(int[] a,int fromIndex,int toIndex)</strong><br>对指定数组元素进行升序排序  </p>
+<pre><code>public static void main(String[] args)
+{
+    int[] arrays={10,9,8,7,6,5,5,4,3,2,1};
+    Arrays.sort(arrays);
+    for(int element:arrays)
+    {
+        System.out.print(element);
+    }
+}</code></pre><p><strong>fill(int[] a,int b)</strong><br>将指定类型的值放入相同类型的数组中  </p>
+<pre><code>public static void main(String[] args)
+{
+    int[] arrays=new int[10];
+    Arrays.fill(arrays,2);
+    for(int element:arrays)
+    {
+        System.out.print(element);
+    }
+}</code></pre><p>  该方法还可以指定一定范围放入该类型的值；  </p>
+<pre><code>public static void main(String[] args)
+{
+    int[] arrays=new int[10];
+    Arrays.fill(arrays,0,3,2);
+    for(int element:arrays)
+    {
+        System.out.print(element);
+    }
+}</code></pre><p><strong>copyOf(int[] original,int new length)</strong></p>
+<p>复制指定数组，可指定副本数组长度；  </p>
+<pre><code>public static void main(String[] args)
+{
+    int[] arrays={1,2,3,4,5};
+    int[] arrays1= Arrays.copyOf(arrays,2);
+    for(int element:arrays1)
+    {
+        System.out.print(element);
+    }
+}</code></pre><p>该方法还可指定复制的范围</p>
+<p><strong>binarySearch(int[] Object,int key)</strong><br>用二分法在指定数组中查找对应值<br>使用二分搜索法来搜索指定的 byte 型数组，以获得指定的值。必须在进行此调用之前对数组进行排序（通过 sort(byte[]) 方法）。如果没有对数组进行排序，则结果是不确定的。如果数组包含多个带有指定值的元素，则无法保证找到的是哪一个。 </p>
+<p>返回：<br>如果它包含在数组中，则返回搜索键的索引；否则返回 (-(插入点) - 1)。插入点 被定义为将键插入数组的那一点：即第一个大于此键的元素索引，如果数组中的所有元素都小于指定的键，则为 a.length。注意，这保证了当且仅当此键被找到时，返回的值将 &gt;= 0。</p>
+<pre><code>public static void main(String[] args)
+{
+    int[] arrays={1,2,3,4,7,8,9,10};
+    int a=Arrays.binarySearch(arrays,5);
+    System.out.println(a);
+}</code></pre><p>此方法可以指定搜索范围；</p>
+<h1 id="System类"><a href="#System类" class="headerlink" title="System类"></a><a href="https://blog.csdn.net/qzc70919700/article/details/75217549" target="_blank" rel="noopener"><strong>System类</strong></a></h1><h1 id="StringBuilder类"><a href="#StringBuilder类" class="headerlink" title="StringBuilder类"></a><a href="http://blog.csdn.net/zi_jun/article/details/7624999" target="_blank" rel="noopener"><strong>StringBuilder类</strong></a></h1><h1 id="String类"><a href="#String类" class="headerlink" title="String类"></a><a href="https://blog.csdn.net/zhao_miao/article/details/83508281?" target="_blank" rel="noopener"><strong>String</strong>类</a></h1>
   </div>
   <!--文末结束语-->
   
@@ -331,7 +431,7 @@
     <ul class="mdui-menu" id="toc">
       <li class="mdui-menu-item">
         <a href="/2020/07/08/java%E7%9A%84%E5%B8%B8%E7%94%A8%E7%B1%BB/" id="toc-header" class="mdui-ripple">文章目录</a>
-        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Scanner类的用法："><span class="toc-number">1.</span> <span class="toc-text">Scanner类的用法：  </span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#介绍"><span class="toc-number">1.1.</span> <span class="toc-text">介绍:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#功能："><span class="toc-number">1.2.</span> <span class="toc-text">功能：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用方法"><span class="toc-number">1.3.</span> <span class="toc-text">常用方法  </span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Random类"><span class="toc-number">2.</span> <span class="toc-text">Random类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#介绍："><span class="toc-number">2.1.</span> <span class="toc-text">介绍：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用方法-1"><span class="toc-number">2.2.</span> <span class="toc-text">常用方法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Date类-DateFormat类-SimpleDateFormat类-calendar类"><span class="toc-number">3.</span> <span class="toc-text">Date类 DateFormat类 SimpleDateFormat类  calendar类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Date类"><span class="toc-number">3.1.</span> <span class="toc-text">Date类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DateFormat类和SimpleDateFormat类"><span class="toc-number">3.2.</span> <span class="toc-text">DateFormat类和SimpleDateFormat类</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Arrays数组工具类"><span class="toc-number">4.</span> <span class="toc-text">Arrays数组工具类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#功能介绍"><span class="toc-number">4.1.</span> <span class="toc-text">功能介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用方法-2"><span class="toc-number">4.2.</span> <span class="toc-text">常用方法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#System类"><span class="toc-number">5.</span> <span class="toc-text">System类</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#StringBuilder类"><span class="toc-number">6.</span> <span class="toc-text">StringBuilder类</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#String类"><span class="toc-number">7.</span> <span class="toc-text">String类</span></a></li></ol>
       </li>
     </ul>
   </div>
